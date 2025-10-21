@@ -1,0 +1,49 @@
+﻿<Window x:Class="Messenger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Messenger"
+        mc:Ignorable="d"
+        Name="MainWdw" Height="700" Width="1240" AllowsTransparency="True" WindowStyle="None" Background="Transparent" StateChanged="MainWdw_StateChanged">
+    <!--MainContentGrid-->
+    <Border Name="MainContentBorder" CornerRadius="20" Background="#1C1D1F" BorderBrush="Gray">
+
+
+        <Grid Style="{StaticResource CommonGrid}" Name="MainWDwMainGrid" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <!--header-->
+            <Border Name="HeaderBd" MouseLeftButtonDown="HeaderBd_MouseLeftButtonDown" BorderThickness="0,0,0,0.5" BorderBrush="Gray">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="180"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Style="{StaticResource CommonLbl}" HorizontalContentAlignment="Center" Content="CTA" Padding="180,0,0,0" />
+                    <!--Header's buttons-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                        <Button Width="60" Style="{StaticResource CommonBtn}" Name="CollapseBtn" Click="CollapseBtn_Click">
+                            <Image Source="/Resources/CollapseWdwBtnImg.png" />
+                        </Button>
+                        <Button Width="60" Style="{StaticResource CommonBtn}" Name="BigWdwBtn" Click="BigWdwBtn_Click">
+                            <Image Source="/Resources/BigWdwBtnImg.png" />
+                        </Button>
+                        <Button Width="60" Style="{StaticResource CommonBtn}" Visibility="Collapsed" Name="SmallWdwBtn" Click="SmallWdwBtn_Click">
+                            <Image Source="/Resources/SmallWdwBtnImg.png" />
+                        </Button>
+                        <Button Width="60" Style="{StaticResource CloseBtnStyle}" Name="CloseWdwBtn" Click="CloseWdwBtn_Click">
+                            <Image Source="/Resources/CloseWdwBtnImg.png" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Name="MainFrame" Background="Transparent" Margin="20,0,20,0">
+
+            </Frame>
+        </Grid>
+    </Border>
+</Window>
